@@ -1,4 +1,4 @@
-# Subset Sum Problem
+# Magic Square Problem
 
 ## dependencies
 
@@ -8,7 +8,10 @@
 sudo apt install libgtest-dev build-essentials cmake nodejs npm perl
 ```
 
-* Compile gtest.
+## C++
+
+
+### Compile gtest.
 
 ```bash
 cd /usr/src/gtest
@@ -20,7 +23,7 @@ cd lib
 sudo cp *.a /usr/lib
 ```
 
-## building
+### building
 
 ```bash
 cd subset_sum/c++
@@ -28,4 +31,11 @@ perl prln.pl -cmk
 cmake . -B build
 cd build
 make .
+```
+
+## Typescript
+
+```bash
+npm i
+npx jest
 ```

@@ -1,3 +1,5 @@
 node_modules
 c++/build
 c++/main
+.vscode
+package-lock.json
