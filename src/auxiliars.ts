@@ -1,4 +1,4 @@
-
+import { ml_Aux } from "./magic_list";
 export function isMagicRow(p:number[][],i:number,n:number):boolean{
     let res=true;
     const magic_number=magic_num(n);
@@ -87,7 +87,12 @@ export function posibles(p:number[][],m:number,s:number,t:number):number[]{
     return arr;
 
 }
-
+/*
+export function successors(p:number[],i:number,aux:ml_Aux):number[]{
+    aux.nexts.filter(m=>!p.includes(m));
+    return aux.nexts;
+}
+*/
 export function isPartialyMagic(p:number[][],i:number,n:number):boolean{
     let res:boolean=true;
     let axisX:number=0;
