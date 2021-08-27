@@ -1,25 +1,13 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const magic_square_1 = __importStar(require("./magic_square"));
+const auxiliars_1 = require("./auxiliars");
+const auxiliars_2 = require("./auxiliars");
+const auxiliars_3 = require("./auxiliars");
+const auxiliars_4 = require("./auxiliars");
+const magic_square_1 = __importDefault(require("./magic_square"));
 function isContained(a, b) {
     let res = false;
     for (let j = 0; j < b.length; j++) {
@@ -111,7 +99,7 @@ test('isPartialMagic', () => {
         [-2, -1, -1],
         [-1, -1, -1]
     ];
-    expect(magic_square_1.isPartialyMagic(result, 1, 3)).toBeTruthy();
+    expect(auxiliars_1.isPartialyMagic(result, 1, 3)).toBeTruthy();
 });
 test('isPartialMagic2', () => {
     let s = [
@@ -132,9 +120,9 @@ test('isPartialMagic2', () => {
         [-2, -1, -1],
         [-1, -1, -1]
     ];
-    expect(magic_square_1.isPartialyMagic(result, 2, 3)).toBeTruthy();
+    expect(auxiliars_1.isPartialyMagic(result, 2, 3)).toBeTruthy();
 });
-test('isPartialMagic', () => {
+test('isPartialMagic3', () => {
     let s = [
         [-1, -1, -1],
         [-2, -1, -1],
@@ -153,7 +141,7 @@ test('isPartialMagic', () => {
         [-2, -1, -1],
         [-1, -1, -1]
     ];
-    expect(magic_square_1.isPartialyMagic(result, 0, 3)).toBeTruthy();
+    expect(auxiliars_1.isPartialyMagic(result, 0, 3)).toBeTruthy();
 });
 test('isNotPartialMagic', () => {
     let s = [
@@ -174,7 +162,7 @@ test('isNotPartialMagic', () => {
         [-2, -1, -1],
         [-1, -1, -1]
     ];
-    expect(!magic_square_1.isPartialyMagic(p, 2, 3)).toBeTruthy();
+    expect(!auxiliars_1.isPartialyMagic(p, 2, 3)).toBeTruthy();
 });
 test('isMagic', () => {
     let s = [
@@ -195,7 +183,7 @@ test('isMagic', () => {
         [-2, -1, -1],
         [-1, -1, -1]
     ];
-    expect(magic_square_1.isMagic(result, 3)).toBeTruthy();
+    expect(auxiliars_2.isMagic(result, 3)).toBeTruthy();
 });
 test('isNotMagic', () => {
     let s = [
@@ -216,28 +204,15 @@ test('isNotMagic', () => {
         [-2, -1, -1],
         [-1, -1, -1]
     ];
-    expect(!magic_square_1.isMagic(p, 3)).toBeTruthy();
+    expect(!auxiliars_2.isMagic(p, 3)).toBeTruthy();
 });
 test('msquare with n: 3', () => {
-    let s = [
-        [-1, -1, -1],
-        [-2, -1, -1],
-        [-1, -1, -1]
-    ];
-    function setter(p) {
-        s = [...p];
-    }
     const result = [
         [2, 7, 6],
         [9, 5, 1],
         [4, 3, 8]
     ];
-    const p = [
-        [-1, -1, -1],
-        [-2, -1, -1],
-        [-1, -1, -1]
-    ];
-    magic_square_1.default(p, 0, -1, 3, false, setter);
+    let s = magic_square_1.default(3);
     console.log(s);
     expect(isMatrixEqual(s, result)).toBeTruthy();
 });
@@ -247,7 +222,7 @@ test('isRepited', () => {
         [9, 5, 1],
         [4, 3, 8]
     ];
-    expect(magic_square_1.isRepited(result, 5)).toBeTruthy();
+    expect(auxiliars_4.isRepited(result, 5)).toBeTruthy();
 });
 test('isNotRepited', () => {
     const result = [
@@ -255,15 +230,7 @@ test('isNotRepited', () => {
         [9, 5, 1],
         [4, 3, 8]
     ];
-    expect(!magic_square_1.isRepited(result, 12)).toBeTruthy();
-});
-test('isEqualMagic', () => {
-    const result = [
-        [2, 2, 2],
-        [2, 2, 2],
-        [2, 2, 2]
-    ];
-    expect(magic_square_1.isMagic(result, 3)).toBeTruthy();
+    expect(!auxiliars_4.isRepited(result, 12)).toBeTruthy();
 });
 test('posibles1', () => {
     const result = [
@@ -271,7 +238,7 @@ test('posibles1', () => {
         [6, 5, 4],
         [2, 2, 2]
     ];
-    const ar = magic_square_1.posibles(result, 3);
+    const ar = auxiliars_3.posibles(result, 3, 2, 2);
     //console.log(ar);
     const res = [7, 8, 9];
     expect(isContained(ar, [res])).toBeTruthy();
@@ -283,14 +250,25 @@ test('posibles2', () => {
         [-1, -1, -1]
     ];
     const res = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    expect(isContained(magic_square_1.posibles(result, 3), [res])).toBeTruthy();
+    expect(isContained(auxiliars_3.posibles(result, 3, 2, 2), [res])).toBeTruthy();
 });
-test('posibles2', () => {
+test('posibles3', () => {
     const result = [
         [9, 2, 1],
         [6, 5, 4],
         [8, 3, 7]
     ];
     const res = [];
-    expect(isContained(magic_square_1.posibles(result, 3), [res])).toBeTruthy();
+    expect(isContained(auxiliars_3.posibles(result, 3, 2, 2), [res])).toBeTruthy();
+});
+test('posibles4', () => {
+    const result = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    const expected = [9];
+    const res = auxiliars_3.posibles(result, 3, 2, 1);
+    //console.log(res);
+    expect(isContained(res, [expected])).toBeTruthy();
 });
